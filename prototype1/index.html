@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>  
+    <meta charset="utf-8">  
+    <title>Prototype, The - Created for Ludum Dare 22</title>  
+
+	<!-- include SM2 library -->
+	<script type="text/javascript" src="external/soundmanager2.js"></script>
+	<!--<script type="text/javascript" src="external/soundmanager2-nodebug-jsmin.js"></script>-->
+
+	<!-- And now, customize it! -->
+	<script type="text/javascript">
+		// ** Sound Manager 2 ** //
+		soundManager.url = 'external/sm2/';
+		soundManager.flashVersion = 9; // optional: shiny features (default = 8)
+		soundManager.useFlashBlock = false; // optionally, enable when you're ready to dive in	
+		//soundManager.waitForWindowLoad = true;
+		soundManager.debugMode = false;
+		// ** Sound Manager 2 ** //
+	</script>
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	
+	<script type="text/javascript" src="src/GelAudio.js"></script>
+	<script type="text/javascript" src="src/GelUtil.js"></script>
+	<script type="text/javascript" src="src/GelMath.js"></script>
+	<script type="text/javascript" src="src/GelGeometry.js"></script>
+	<script type="text/javascript" src="src/GelGraphics.js"></script>
+	<script type="text/javascript" src="src/GelDebugStack.js"></script>
+	<script type="text/javascript" src="src/GelTileSheet.js"></script>
+	<script type="text/javascript" src="src/GameMap.js"></script>
+	<script type="text/javascript" src="src/GamePlayer.js"></script>	
+	<script type="text/javascript" src="src/Game.js"></script>
+	<script type="text/javascript" src="src/Main.js"></script>
+
+	<style>
+		body {
+			background-color:#444;
+			margin: 0px;
+			padding: 0px;
+		}
+
+		canvas {
+			position: absolute;
+			border: 0px solid #444;
+			cursor: none;
+			image-rendering: -moz-crisp-edges; 
+			image-rendering: -o-crisp-edges;
+			image-rendering: -webkit-optimize-contrast;
+			-ms-interpolation-mode: nearest-neighbor;
+		}
+
+	
+		#soundmanager-debug {
+			position:fixed;
+			_position:absolute; /* IE <7 */
+			bottom:1em;
+			right:1em;
+			width:38em;
+			height:10em;
+			overflow:auto;
+			padding:0px;
+			margin:1em;
+			font-family:monaco,"VT-100","lucida console",courier,system;
+			opacity:0.9;
+			color:#333;
+			border:1px solid #ccddee;
+			-moz-border-radius:3px;
+			-khtml-border-radius:3px;
+			-webkit-border-radius:3px;
+			background:#f3f9ff;
+		}
+		
+		/*
+		#soundmanager-debug code {
+			font-size:1.1em;
+			*font-size:1em;
+		}
+		*/
+		
+		#soundmanager-debug div {
+			font-size:x-small;
+			padding:0.2em;
+			margin:0px;
+		}
+	</style>
+</head>  
+<body onload="load();">
+	<canvas id="cv" width="256" height="144"></canvas>
+	<div id="HTMLLog"></div>
+</body>
+</html>

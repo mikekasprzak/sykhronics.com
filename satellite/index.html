@@ -1,0 +1,53 @@
+<!DOCTYPE HTML>
+<html>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js" type="text/javascript"></script>
+<body>
+	
+<h1>Servers</h1>
+<div id="bodytext">Loading...</div><br />
+<br />
+Your IP: <span id="userip">???</span> -- Country: <span id="usercountry">??</span> -- Location: <span id="userlatitude">??</span>, <span id="userlongitude">??</span><br />
+<br />
+<img id="userimage" src="" /><br />
+
+<script>
+function Clear( Text ) {
+	document.getElementById('bodytext').innerHTML = "";
+}
+function Write( Text ) {
+	document.getElementById('bodytext').innerHTML += Text;
+}
+// ----------------------------- //	
+$.getJSON("json.php", function( Data ) {
+	// Clear the "Loading" text //
+	Clear();
+
+	for ( var idx = 0; idx < Data.ServerCount; idx++ ) {
+		Write( Data.Server[idx].Address + ":" + Data.Server[idx].Port.toString() );
+		Write( " -- " );
+		Write( "Version: " + (Data.Server[idx].Version / 10000.0).toString() );
+		Write( " -- " );
+		Write( "Location: " + Data.Server[idx].Latitude.toString() + ", " + Data.Server[idx].Longitude.toString() );
+		Write( " -- " );
+		Write( "Info: '" + Data.Server[idx].Info + "'" );
+		Write( " <img src=\"Flags/" + Data.Server[idx].Info.substr(2,2) + ".png\" height=\"12\" border=\"1\" />" );
+		Write( "<br />" );
+	}
+
+	Write( "<br />" + Data.ServerCount.toString() + " servers.<br />" );
+});
+// ----------------------------- //
+$(document).ready(function() {
+	$.getJSON("http://syk-country.appspot.com/?jsonp=?", function( Data ) {
+		document.getElementById('userip').innerHTML = Data.IP;
+		document.getElementById('usercountry').innerHTML = Data.CountryCode;
+		document.getElementById('userlongitude').innerHTML = Data.Longitude.toString();
+		document.getElementById('userlatitude').innerHTML = Data.Latitude.toString();
+		
+		document.getElementById('userimage').src = "Flags/" + Data.CountryCode + ".png";
+	});
+});
+</script>
+
+</body>
+</html>

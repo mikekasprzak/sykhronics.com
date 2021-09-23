@@ -1,0 +1,27 @@
+This is a combo of 3 games:
+
+mrfun's Strong AI
+http://www.ludumdare.com/compo/2008/04/20/strong-ai-final/
+
+PoV's towlr
+http://www.ludumdare.com/compo/2008/08/10/towlr/
+
+SpindleyQ's CGA Quest
+http://www.ludumdare.com/compo/2008/04/20/cga-quest/
+
+.. and a little bit of good ol' breakout :)
+http://en.wikipedia.org/wiki/Breakout_(arcade_game)
+
+Thanks to festival for the voice synth:
+http://www.cstr.ed.ac.uk/projects/festival/
+
+Thanks to DrPetter for tips on getting bitmap fonts working.
+
+Notes on towlr design:
+http://www.towlr.com/towlr-design.txt
+
+Before playing this game, be sure to review the warnings available on
+towlr.com.
+
+(c) 2009 Phil Hassey
+http://www.towlr.com/

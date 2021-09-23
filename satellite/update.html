@@ -1,0 +1,58 @@
+<!DOCTYPE HTML>
+<html>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js" type="text/javascript"></script>
+<body>
+
+<div id="bodytext">Loading...</div><br />
+<img id="userimage" src="" /><br />
+
+
+
+<form action="json.php" method="post">
+<input type="hidden" name="action" value="update" />
+<input type="hidden" id="userip" name="Address" value="??" />
+<input type="hidden" id="userport" name="Port" value="10240" />
+<input type="hidden" id="userversion" name="Version" value="100" />
+<input type="hidden" id="userlatitude" name="Latitude" value="0.0" />
+<input type="hidden" id="userlongitude" name="Longitude" value="0.0" />
+<input type="hidden" id="userinfo" name="Info" value="????????" />
+<input type="Submit" value="Send Update" />
+</form> 
+
+
+<script>
+function getUrlVars() {
+	var vars = {};
+	var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
+		vars[key] = value;
+	});
+	return vars;
+}
+
+$(document).ready(function() {
+	if ( getUrlVars()["action"] == "edit" ) {
+		document.getElementById('userip').type = "text";
+		document.getElementById('userport').type = "text";
+		document.getElementById('userversion').type = "text";
+		document.getElementById('userlatitude').type = "text";
+		document.getElementById('userlongitude').type = "text";
+		document.getElementById('userinfo').type = "text";
+	}
+	
+	$.getJSON("http://syk-country.appspot.com/?jsonp=?", function( Data ) {
+		document.getElementById('bodytext').innerHTML = "...";
+
+		document.getElementById('userip').value = Data.IP;
+		document.getElementById('userlongitude').value = Data.Longitude.toString();
+		document.getElementById('userlatitude').value = Data.Latitude.toString();
+		document.getElementById('userinfo').value = "DD" + Data.CountryCode + "____";
+		
+		document.getElementById('bodytext').innerHTML = "Done";
+		document.getElementById('userimage').src = "Flags/" + Data.CountryCode + ".png";
+	});
+});
+</script>
+
+
+</body>
+</html>

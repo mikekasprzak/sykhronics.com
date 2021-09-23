@@ -1,0 +1,41 @@
+<!doctype HTML>
+<html>
+<head>
+	<title>SquirrelyJS</title>
+	<link rel="stylesheet" type="text/css" href="main.css">
+	
+	<script type="text/javascript" src="main.js"></script>
+	<script type="text/javascript" src="output/Squirrely.js"></script>
+</head>
+<body onload="OnLoad()">
+	<div class="myapp">
+		<div class="leftside">
+			<textarea id="in" class="code" placeholder="Squirrel code goes here"></textarea>
+		</div>
+		<div class="rightside">
+			<div class="title">
+				<img class="imglogo" align="right" src="nut_cracker.png" />
+				<strong>SquirrelyJS</strong> v1, a nutty browser experiment by <a href="http://toonormal.com"><strong>Mike Kasprzak</strong></a><br />
+				SquirrelyJS uses <a href="http://www.squirrel-lang.org/" target="_blank"><strong>Squirrel</strong></a> by <strong>Alberto Demichelis</strong>
+			</div>
+			<div id="out" class="output">
+			</div>
+			<div class="controls">
+				<button onclick="VMCompileRun();UpdateScroll();">Compile+Run</button>
+				<button onclick="VMCompile();UpdateScroll();">Compile</button>
+				<button onclick="VMRun();UpdateScroll()">Run</button>
+				<button onclick="VMDump();UpdateScroll();">Dump VM</button>
+				<button onclick="ClearOut();">Clear Output</button>
+				<br />
+				<!--<select>
+					<option>Function 1</option>
+					<option>Function 2</option>
+					<option>Function 3</option>
+				</select>
+				<button>Run Function</button>-->
+				Animals were <em>probably</em> <a href="http://tvtropes.org/pmwiki/pmwiki.php/Main/NoAnimalsWereHarmed">harmed</a>. <em>Squirrely</em> ones.
+			</div>
+		</div>
+	</div>
+</body>
+</html>
